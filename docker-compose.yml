@@ -1,0 +1,10 @@
+version: "3"
+services:
+  uwsgi-flask:
+    build: ./flask
+  nginx:
+    build: ./nginx
+    links:
+      - uwsgi-flask
+    ports:
+      - "0.0.0.0:80:80"
